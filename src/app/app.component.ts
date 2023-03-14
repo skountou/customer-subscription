@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { User } from './user.model';
 import { TranslateConfigService } from './translate-config.service';
 import { getApiDataService } from './getApiData.service';
+import { User } from './user.model';
 
 @Component({
   selector: 'app-root',
@@ -12,21 +12,32 @@ import { getApiDataService } from './getApiData.service';
 export class AppComponent {
   title = 'customer-subscription';
 
-  userData: User | any;
-  responseData:any;
-  
+  public user: any;
+  public id: number = Math.floor(Math.random() * 9) + 1;
   public selectedLanguage: string = 'en';
   translateConfigService: any;
 
   constructor(
-    private getApiData:getApiDataService
+    private getApiData:getApiDataService,
     // private translateConfig:TranslateConfigService
     ) {}
 
   ngOnInit(){
+  
+    setTimeout(() => {
+      this.getApiData.fetchData(this.id).subscribe({
+        next: async (res:any) => {
+          this.user = await(res.data);
+          console.log(res);
+          console.log('Data loaded succesfully!')
+        },
+        error:() => {
+          console.log('Data could not be loaded!')
+        }
+      })
+    }, 1000);
+    
     // this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
-    this.responseData = this.getApiData.fetchData();
-    this.userData = JSON.parse(this.responseData);
   }
 
   //Custom functions
@@ -34,12 +45,8 @@ export class AppComponent {
 
   }
 
-  // fetchInitialData(){
-  //     fetch("dummy-API-data.json")
-  //     .then(response => response.json())
-  //     .catch(err => err.json())
-  // }
 
   
 
 }
+
