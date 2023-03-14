@@ -17,8 +17,9 @@
           matInput 
           class="formControl" 
           required 
-          id="firstName" 
-          [(ngModel)]="userData?.data.firstName" name="firstName">
+          id="firstName"
+          [(ngModel)]="user.firstName" 
+          name="firstName">
         </mat-form-field>
         <mat-form-field fxFlex="30" class="example-full-width">
           <mat-label>Last Name</mat-label>
@@ -27,7 +28,7 @@
           class="formControl" 
           required 
           id="lastName" 
-          [(ngModel)]="userData?.data.lastName" name="lastName">
+          [(ngModel)]="user.lastName" name="lastName">
         </mat-form-field>
       </div>
       <div fxFlex="60" fxLayoutAlign="space-around">
@@ -38,14 +39,14 @@
           class="formControl" 
           required 
           id="email" 
-          [(ngModel)]="userData?.data.email" name="email">
+          [(ngModel)]="user.email" name="email">
         </mat-form-field>
-        <mat-form-field fxFlex="30" class="example-full-width">
+        <!-- <mat-form-field fxFlex="30" class="example-full-width">
           <mat-label>Birthday</mat-label>
           <input matInput [matDatepicker]="picker">
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
+        </mat-form-field> -->
       </div>
       <div fxFlex="60" fxLayoutAlign="space-around">
         <div fxFlex="30" fxLayoutAlign="center">
@@ -53,7 +54,7 @@
           color="Primary"
           required
           id="receiveSMS"
-          [(ngModel)]="userData?.data.receiveSMS"
+          [(ngModel)]="user.receiveSMS"
           name="receiveSMS"
           >Receive SMS
         </mat-slide-toggle>
@@ -63,7 +64,7 @@
           color="Primary"
           required
           id="receiveCalls"
-          [(ngModel)]="userData?.data.receiveCalls"
+          [(ngModel)]="user.receiveCalls"
           name="receiveCalls"
           >Receive Calls
           </mat-slide-toggle> 
@@ -76,7 +77,7 @@
           color="Primary"
           required
           id="receiveEmail"
-          [(ngModel)]="userData?.data.receiveEmail"
+          [(ngModel)]="user.receiveEmail"
           name="receiveEmail"
           >Receive E-mail
           </mat-slide-toggle> 

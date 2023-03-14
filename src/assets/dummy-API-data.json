@@ -5,10 +5,9 @@
 		"firstName": "Ray",
 		"lastName": "Johnson",
 		"email": "skountou439@gmail.com",
-		"birthDay": "2012-04-23T18:25:43.511Z",
 		"receiveSMS": "true",
 		"receiveCalls": "false",
-		"receiveEmails ": "true"
+		"receiveEmails": "true"
 	}
 
 }
