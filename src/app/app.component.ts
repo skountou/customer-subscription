@@ -27,8 +27,8 @@ export class AppComponent {
     setTimeout(() => {
       this.getApiData.fetchData(this.id).subscribe({
         next: async (res:any) => {
-          this.user = await(res.data);
-          console.log(res);
+          this.user = await (res[0]);
+          console.log(this.user);
           console.log('Data loaded succesfully!')
         },
         error:() => {
